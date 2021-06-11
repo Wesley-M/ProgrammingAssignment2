@@ -4,16 +4,16 @@
 ## a list of getter and setter methods for both the matrix 
 ## and its inverse.
 
-makeCacheMatrix <- function(m = matrix()) {
+makeCacheMatrix <- function(matrix = matrix()) {
     inverse <- NULL
     
-    set <- function(new_m) {
-        m <<- new_m
+    set <- function(new_matrix) {
+        matrix <<- new_matrix
         inverse <<- NULL
     }
     
     get <- function() {
-        m
+        matrix
     }
     
     set_inverse <- function(new_inverse) {
@@ -43,7 +43,7 @@ cacheSolve <- function(x, ...) {
     }
     
     matrix <- x$get()
-    inverse <- solve(matrix)
+    inverse <- solve(matrix, ...)
     
     # Caching the inverse matrix
     x$set_inverse(inverse)
